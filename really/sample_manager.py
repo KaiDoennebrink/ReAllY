@@ -344,7 +344,7 @@ class SampleManager:
             )
             raise ValueError
 
-        for e in range(test_episodes):
+        for e in range(1, test_episodes + 1):
             state_new = np.expand_dims(env.reset(), axis=0)
             if return_reward:
                 reward_per_episode = []
@@ -369,7 +369,7 @@ class SampleManager:
                     if return_reward:
                         rewards.append(np.sum(reward_per_episode))
                     break
-                if t == max_steps - 1:
+                if t == max_steps:
                     if return_time:
                         time_steps.append(t)
                     if return_reward:
