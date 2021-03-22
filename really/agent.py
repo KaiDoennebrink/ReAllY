@@ -126,7 +126,7 @@ class Agent:
             logging.warning(action)
 
             if return_log_prob:
-                output["log_probability"] = np.sum(norm.logpdf(action, mus, sigmas))
+                output["log_probability"] = norm.logpdf(action, mus, sigmas)
 
         elif self.action_sampling_type == "discrete_policy":
             logits = network_out["policy"]
@@ -216,7 +216,7 @@ class Agent:
                 entropy = -tf.reduce_sum(logits * tf.math.log(logits), axis=-1)
                 entropy = tf.expand_dims(entropy, -1)
                 return log_prob, entropy
-            return log_prop
+            return log_prob
 
 
         elif self.action_sampling_type == "discrete_policy":
