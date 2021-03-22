@@ -20,7 +20,7 @@ grid_q.py
 progress_test
 *.log
 
-
+logging
 
 # Byte-compiled / optimized / DLL files
 really/__pycache__
