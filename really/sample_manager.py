@@ -344,12 +344,12 @@ class SampleManager:
             )
             raise ValueError
 
-        for e in range(1, test_episodes + 1):
+        for e in range(test_episodes + 1):
             state_new = np.expand_dims(env.reset(), axis=0)
             if return_reward:
                 reward_per_episode = []
 
-            for t in range(max_steps):
+            for t in range(1, max_steps + 1):
                 if render:
                     env.render()
                 state = state_new
