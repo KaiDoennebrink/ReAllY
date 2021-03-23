@@ -11,7 +11,7 @@ from really.utils import discount_cumsum
 from ray.tune.registry import register_env
 
 
-@ray.remote
+@ray.remote(max_restarts=4)
 class RunnerBox:
     """
     Runner Box handling interaction between an instance of the Agent and an instance of the environment.
